@@ -76,11 +76,16 @@ void manipulate(bitmap_pixel_rgb_t* pixels, int count)
 		bitmap_pixel_rgb_t* pix = &pixels[i];
 
 				 // pix -> b = 0; oder (*pix).b = 0; another manner to Write it.// blue color disappear
-		bitmap_component_t x = (bitmap_component_t)(  
-					  (0.299* (pix -> r )) + 
-			          (0.587*(pix -> g )) + 
-			          (0.114*(pix -> b ))  );
-		pix -> r = pix -> g = pix -> b = x;
+         // r= 299, g=587, b= 114 -> gray color
+	
+    
+  bitmap_component_t x = (bitmap_component_t)(
+    (254*(pix -> r )) +
+    (0.1*(pix -> g)) +
+    (0.1*(pix -> b)) );
+  
+pix -> r = pix -> g = pix -> b = x;
+  
 
 
 	}
